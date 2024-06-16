@@ -6,6 +6,11 @@
     padding:0;
   }
 
+:root{
+  --lightGold: #d4af37;
+  --gold: rgb(250 204 21);
+}
+
 body{
     display: flex;
     flex-direction: column;
@@ -16,6 +21,10 @@ body{
     overflow: hidden;
     justify-content: center;
     align-items: center;
+}
+
+li:not(:last-child) {
+  margin-bottom: 10px;
 }
 
 input {
@@ -159,6 +168,7 @@ input::-webkit-inner-spin-button {
     left: 0;
     height: fit-content;
     width: 20%;
+    min-width: 300px;
     margin: auto;
     overflow: auto;
     background: black;

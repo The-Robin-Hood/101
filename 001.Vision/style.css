@@ -11,7 +11,7 @@ body{
   #scope {
     height: 300px;
     width: 300px;
-    border: solid 0.5px rgb(212, 175, 55);
+    border: solid 0.5px var(--lightGold);
     position: absolute;
     cursor: grab;
     left: 0px;
