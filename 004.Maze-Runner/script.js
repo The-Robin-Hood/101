@@ -114,6 +114,9 @@ function lightUpButtons(btn){
 }
 
 function movement(maze,movement){
+    if(won){
+        return;
+    }
     const current = document.querySelector(".current");
     const index = Array.from(maze.children).indexOf(current);
     if(movement === "UP" && current.style.borderTop === "none"){
