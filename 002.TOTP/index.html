@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>002.TOTP</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../assets/common.css">
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/png">
+</head>
+
+<body>
+    <!-- Modal Section -->
+    <input class="modal-state" id="modal" type="checkbox" />
+    <div class="modal">
+        <label class="modal__bg" for="modal"></label>
+        <div class="modal__inner" style="width:25%;">
+            <label class="modal__close" for="modal"></label>
+            <h2>002.TOTP</h2>
+            <p class="modal__p">
+            <ul>
+                <li style="margin-bottom:10px">
+                    TOTP works by taking a <span style="color:rgb(212, 175, 55)">secret</span> and a <span
+                        style="color:rgb(212, 175, 55)">timestamp</span> and hashing them together.
+                </li>
+                <li style="margin-bottom:10px">
+                    The <span style="color:rgb(212, 175, 55)">hash</span> is then truncated to a certain number of
+                    digits.
+                </li>
+                <li style="margin-bottom:10px">
+                    The digits are then used to generate a <span style="color:rgb(212, 175, 55)">one-time
+                        password</span>.
+                </li>
+                <li style="margin-bottom:10px">
+                    The <span style="color:rgb(212, 175, 55)">period</span> is the time in seconds that the <span
+                        style="color:rgb(212, 175, 55)">one-time password</span> is valid.
+                </li>
+                <li>
+                    Refer: <a href="https://tools.ietf.org/html/rfc6238" target="_blank"
+                        style="color:rgb(212, 175, 55)">RFC
+                        6238</a>.
+                </li>
+            </ul>
+
+            </p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="group">
+            <label for="secret">Secret:</label>
+            <input type="text" id="secret" name="secret" value="JV4SA43BMZSQ">
+        </div>
+        <div class="group">
+            <label for="period">Period:</label>
+            <input type="number" id="period" name="period" value="30" min="3">
+        </div>
+        <div class="group">
+            <label for="digits">Digits:</label>
+            <input type="number" id="digits" name="digits" value="6" min="1" max="10">
+        </div>
+        <p id="remaining"></p>
+        <p id="otp"></p>
+        <svg class="dial">
+            <circle r="230" cx="120" cy="140" fill="transparent" stroke="rgb(212, 175, 55,0.7)" stroke-width="10"
+                transform="rotate(-90 100 100)" stroke-dasharray="1570" stroke-dashoffset="0"></circle>
+        </svg>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <label for="modal">(i)</label>
+        <a class="arrow" href="../"></a>
+    </div>
+</body>
+<script src="./script.js"></script>
+
+</html>

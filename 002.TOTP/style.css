@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: fit-content;
+    z-index: 10;
+}
+
+.group{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    font-size: 20px;
+}
+
+#otp{
+    font-weight: 500;
+    font-style: normal;
+    font-size: 46px;
+    letter-spacing: 0.3em;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#remaining{
+    margin-top: 20px;
+}
+
+.dial{
+    position:absolute;
+    overflow: visible;
+    z-index: 1;
+    pointer-events: none;
+}
