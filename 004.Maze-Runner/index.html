@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>004.Maze-Runner</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../assets/common.css">
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/png">
+</head>
+
+<body>
+    <!-- Modal Section -->
+    <input class="modal-state" id="modal" type="checkbox" />
+    <div class="modal">
+        <label class="modal__bg" for="modal"></label>
+        <div class="modal__inner" style="width: 30%;">
+            <label class="modal__close" for="modal"></label>
+            <h2>004.Maze-Runner</h2>
+            <p class="modal__p">
+            <ul>
+                <li>A simple maze game which uses the concept of
+                    <span style="color:var(--lightGold)">
+                        backtracking (DFS)
+                    </span>
+                    to generate the maze.
+                </li>
+                <li>
+                    Initially the starting cell is marked as visited.
+                </li>
+                <li>
+                    If the current cell has any neighbours which have not been visited, then randomly selected neighbour
+                    is
+                    marked as visited and made as the current cell.
+                </li>
+                <li>
+                    If the current cell has no unvisited neighbours,then the current cell is backtracked to the previous
+                    cell.
+                </li>
+                <li>
+                    The process continues until all cells have been visited.
+                    Refer to
+                    <a href="https://en.wikipedia.org/wiki/Maze_generation_algorithm#Randomized_depth-first_search:~:text=branch%20before%20backtracking.-,Recursive%20implementation,-%5Bedit%5D"
+                        target="_blank" style="color:var(--lightGold)">
+                        Maze Generation Algorithm
+                    </a>
+                </li>
+            </ul>
+            </p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <h1>Maze Runner</h1>
+    <p id="tooltip"></p>
+    <div id="maze">
+
+
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        <label for="modal">(i)</label>
+        <a class="arrow" href="../"></a>
+    </div>
+</body>
+<script src="./script.js"></script>
+
+</html>

@@ -1,0 +1,55 @@
+body{
+    gap:20px;
+}
+
+#maze {
+    margin-top: 20px;
+    border: 1px solid white;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    grid-template-columns: repeat(15,1fr);
+    grid-template-rows: repeat(15,1fr);
+    display: grid;
+    background-color: black;
+}
+.cell {
+    width: 20px;
+    height: 20px;
+    border: 1px solid white;
+}
+
+.final::before{
+    content: "👑";
+    font-size: 13px;
+    text-align: center;
+    position: relative;
+    top: -3px;
+}
+
+.current-gen{
+    background-color: var(--gold);
+}
+
+.current{
+    color: var(--gold);
+}
+.current::before{
+    content: "♟";
+    font-size: 18px;
+    position: relative;
+    top: -3px;
+  
+}
+
+.won::before{
+    content: "🎉";
+    font-size: 13px;
+    text-align: center;
+    position: relative;
+    top: -3px;
+}
+
+#tooltip{
+    color: var(--gold);
+}
