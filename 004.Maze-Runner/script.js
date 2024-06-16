@@ -6,7 +6,10 @@ const rows = 15;
 const cols = 15;
 const visited = new Set();
 const tooltip = document.getElementById("tooltip");
-
+const w = document.querySelector("#w");
+const s = document.querySelector("#s");
+const a = document.querySelector("#a");
+const d = document.querySelector("#d");
 
 function getRandomUnVisitedNeighbour(current) {
     const neighbors = [];
@@ -89,6 +92,26 @@ async function dfs(maze,start) {
     tooltip.innerHTML = "Use W A S D or arrow keys to move";
 }
 
+function lightUpButtons(btn){
+    switch(btn){
+        case "w":
+            w.classList.add("lit");
+            setTimeout(() => { w.classList.remove("lit"); }, 100);
+            break;
+        case "s":
+            s.classList.add("lit");
+            setTimeout(() => { s.classList.remove("lit"); }, 100);
+            break;
+        case "a":
+            a.classList.add("lit");
+            setTimeout(() => { a.classList.remove("lit"); }, 100);
+            break;
+        case "d":
+            d.classList.add("lit");
+            setTimeout(() => { d.classList.remove("lit"); }, 100);
+            break;
+    }
+}
 
 function movement(maze,movement){
     const current = document.querySelector(".current");
@@ -134,6 +157,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     cells = document.querySelectorAll(".cell");
     await dfs(maze,initial_position);
     cells[final_position].classList.add("final");
+    document.querySelector(".controls").style.visibility = "visible";
 
     document.addEventListener("keydown", function (event) {
         if(!maze_created || won){
@@ -141,20 +165,44 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
         if(event.key ==="w" || event.key === "W" || event.key === "ArrowUp"){
             movement(maze,"UP");
+            lightUpButtons("w");
         }
         if(event.key ==="s" || event.key === "S" || event.key === "ArrowDown"){
             movement(maze,"DOWN");
+            lightUpButtons("s");
         }
         if(event.key ==="a" || event.key === "A" || event.key === "ArrowLeft"){
             movement(maze,"LEFT");
+            lightUpButtons("a");
         }
         if(event.key ==="d" || event.key === "D" || event.key === "ArrowRight"){
             movement(maze,"RIGHT");
+            lightUpButtons("d");
         }
         // f5 key
         if(event.key === "F5"){
             window.location.reload();
         }
     });
+
+    w.onclick = () => {
+        movement(maze,"UP");
+        lightUpButtons("w");
+    }
+    
+    s.onclick = () => {
+        movement(maze,"DOWN");
+        lightUpButtons("s");
+    }
+    
+    a.onclick = () => {
+        movement(maze,"LEFT");
+        lightUpButtons("a");
+    }
+    
+    d.onclick = () => {
+        movement(maze,"RIGHT");
+        lightUpButtons("d");
+    }
     
 });
