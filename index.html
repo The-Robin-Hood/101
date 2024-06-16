@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,16 +8,31 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/png">
     <link rel="stylesheet" href="./assets/common.css">
+    <script src="./assets/common.js"></script>
 </head>
+
 <body class="h-screen flex items-center justify-center bg-black flex flex-col font-black">
+
+    <!-- Warning Modal Section  -->
+    <input class="modal-state" id="warning" type="checkbox"/>
+    <div class="modal">
+        <div class="modal__inner">
+            <h2 style="text-align: center;">101 - Warning</h2>
+            <p class="modal__p">
+                Kindly use a desktop or laptop for a better experience.
+            </p>
+        </div>
+    </div>
+
     <h1 class="text-white text-[30px]">
         .101.
     </h1>
     <div class="flex flex-col text-white gap-x-[200px] gap-y-2 p-10">
         <a href="./001.Vision/" class="opacity-75 hover:opacity-100 hover:text-yellow-400">001.Vision</a>
-        <a href="./002.TOTP/" class="opacity-75 hover:opacity-100 hover:text-yellow-400" >002.TOTP</a>
-        <a href="./003.3n+1/" class="opacity-75 hover:opacity-100 hover:text-yellow-400" >003.3n+1</a>
-        <a href="./004.Maze-Runner/" class="opacity-75 hover:opacity-100 hover:text-yellow-400" >004.Maze-Runner</a>
+        <a href="./002.TOTP/" class="opacity-75 hover:opacity-100 hover:text-yellow-400">002.TOTP</a>
+        <a href="./003.3n+1/" class="opacity-75 hover:opacity-100 hover:text-yellow-400">003.3n+1</a>
+        <a href="./004.Maze-Runner/" class="opacity-75 hover:opacity-100 hover:text-yellow-400">004.Maze-Runner</a>
     </div>
 </body>
+
 </html>
