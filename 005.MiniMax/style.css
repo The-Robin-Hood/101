@@ -1,8 +1,9 @@
 .grid{
     display: grid;
+    position: relative;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1px;
-    margin-top: 50px;
+    margin-top: 20px;
     height: 300px;
     width: 300px;
     background-color: white;
@@ -10,6 +11,7 @@
 }
 
 .cell{
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,5 +22,82 @@
 }
 
 #tooltip{
+    margin-top: 20px;
     color: var(--gold);
+}
+
+.strike-line{
+    position: absolute;
+    border: 3px solid var(--gold);
+    height: 100%;
+    background-color: var(--gold);
+    opacity: 0.5;
+    z-index: 1;
+    visibility: hidden;
+}
+
+.strike-line.horizontal, .strike-line.vertical, .strike-line.forward, .strike-line.backward{
+    animation: strike 0.5s ease;
+}
+
+.strike-line.horizontal{
+    rotate: 0deg;
+    margin-left: 47px;
+    visibility: visible;
+}
+
+.strike-line.horizontal.col0{
+    left: 0;
+}
+
+.strike-line.horizontal.col1{
+    left: 100px;
+}
+
+.strike-line.horizontal.col2{
+    left: 200px;
+}
+
+.strike-line.vertical{
+    rotate: 90deg;
+    margin-top: 50px;
+    left: 150px;
+    visibility: visible;
+}
+
+.strike-line.vertical.row0{
+    top: -150px;
+}
+
+.strike-line.vertical.row1{
+    top: -50px;
+}
+
+.strike-line.vertical.row2{
+    top: 50px;
+}
+
+.strike-line.forward{
+    height: 130%;
+    top: -50px;
+    left: 150px;
+    rotate: 45deg;
+    visibility: visible;
+}
+
+.strike-line.backward{
+    height: 130%;
+    top: -40px;
+    left: 150px;
+    rotate: -45deg;
+    visibility: visible;
+}
+
+@keyframes strike{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
 }

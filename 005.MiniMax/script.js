@@ -1,6 +1,9 @@
 // Initial game state setup
 let currentPlayer = Math.random() < 0.5 ? "X" : "O";
 let isGameOver = false;
+let winningIndexes = [];
+let winningStrike = "";
+const tooltip = document.getElementById("tooltip");
 const GameState = {
     X: -10,
     O: 10,
@@ -25,6 +28,13 @@ function checkWinner(player) {
 
     // Check diagonals
     if (diag1_check || diag2_check) {
+        if (diag1_check) {
+            winningIndexes = [0, 4, 8];
+            winningStrike = "backward";
+        } else {
+            winningIndexes = [2, 4, 6];
+            winningStrike = "forward";
+        }
         return true;
     }
 
@@ -33,6 +43,13 @@ function checkWinner(player) {
         const rows_check = board[i].every(cell => cell === player);
         const cols_check = board.every(row => row[i] === player);
         if (rows_check || cols_check) {
+            if (rows_check) {
+                winningIndexes = [i * 3, i * 3 + 1, i * 3 + 2];
+                winningStrike = `vertical.row${i}`
+            } else {
+                winningIndexes = [i, i + 3, i + 6];
+                winningStrike = `horizontal.col${i}`
+            }
             return true;
         }
     }
@@ -105,7 +122,7 @@ function machinePlays() {
             if ((currentPlayer === "O" && score > bestScore) || (currentPlayer === "X" && score < bestScore)) {
                 bestScore = score;
                 bestMoves = [{ i, j }];
-            }else{
+            } else if (score === bestScore) {
                 bestMoves.push({ i, j });
             }
         }
@@ -123,11 +140,30 @@ function machinePlays() {
     }
 }
 
+function changeColorForWinnerIndexes(indexes) {
+    indexes.forEach(index => {
+        document.querySelector(`.cell[data-value="${index + 1}"]`).style.color = "var(--gold)";
+    });
+    winningStrike.split(".").forEach(cls => {
+        document.getElementById("strikeline").classList.add(cls);
+    });
+    console.log(winningStrike);
+}
+
 function checkGameOver() {
-    if (checkWinner(currentPlayer) || checkTie()) {
+    if (checkWinner(currentPlayer)) {
+        changeColorForWinnerIndexes(winningIndexes);
+        tooltip.textContent = `Press F5 to play again.`;
         isGameOver = true;
+        return true;
     }
-    return isGameOver;
+
+    if (checkTie()) {
+        tooltip.textContent = "It's a tie!.\nPress F5 to play again.";
+        isGameOver = true;
+        return true;
+    }
+    return false;
 }
 
 // User makes a move by clicking a cell
@@ -148,3 +184,9 @@ if (currentPlayer === "O") {
     console.log("AI starts the game!");
     machinePlays();
 }
+
+document.addEventListener("keydown", event => {
+    if (event.key === "F5") {
+        window.location.reload();
+    }
+});
