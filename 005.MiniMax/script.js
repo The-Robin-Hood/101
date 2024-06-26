@@ -3,6 +3,12 @@ let currentPlayer = Math.random() < 0.5 ? "X" : "O";
 let isGameOver = false;
 let winningIndexes = [];
 let winningStrike = "";
+
+let cheatcodes = [];
+const cheatkeys = ["h", "l", "k", "1", "8"];
+let cheatTimeout;
+let activateCheat = false;
+
 const tooltip = document.getElementById("tooltip");
 const GameState = {
     X: -10,
@@ -106,6 +112,19 @@ function minimax(board, depth, isMaximizing) {
     }
 }
 
+function getRandomMove() {
+    // get a random position from the board which is empty
+    let emptyCells = [];
+    board.forEach((row, i) => {
+        row.forEach((cell, j) => {
+            if (cell === "") {
+                emptyCells.push({ i, j });
+            }
+        });
+    });
+    return emptyCells[Math.floor(Math.random() * emptyCells.length)];
+}
+
 // Algorithm makes a move using the Minimax algorithm
 function machinePlays() {
     let bestScore = currentPlayer === "O" ? -Infinity : Infinity;
@@ -131,6 +150,10 @@ function machinePlays() {
     if (bestMoves.length > 0) {
         move = bestMoves[Math.floor(Math.random() * bestMoves.length)];
     }
+    
+    if (activateCheat) {
+        move = getRandomMove();
+    }
 
     if (move) {
         board[move.i][move.j] = currentPlayer;
@@ -147,7 +170,6 @@ function changeColorForWinnerIndexes(indexes) {
     winningStrike.split(".").forEach(cls => {
         document.getElementById("strikeline").classList.add(cls);
     });
-    console.log(winningStrike);
 }
 
 function checkGameOver() {
@@ -181,7 +203,6 @@ document.querySelectorAll(".cell").forEach(cell => {
 });
 
 if (currentPlayer === "O") {
-    console.log("AI starts the game!");
     machinePlays();
 }
 
@@ -189,4 +210,25 @@ document.addEventListener("keydown", event => {
     if (event.key === "F5") {
         window.location.reload();
     }
+
+      if (cheatkeys.includes(event.key)) {
+        cheatcodes.push(event.key);
+        clearTimeout(cheatTimeout);
+        cheatTimeout = setTimeout(() => {
+          cheatcodes = [];
+        }, 3000);
+
+        if (cheatcodes.length == 5) {
+          let cheatcode = cheatcodes.join("");
+          if (cheatcode === "hlk18") {
+            activateCheat = !activateCheat;
+            tooltip.textContent = `Cheat code activated!`;
+          }
+          cheatcodes = [];
+        }
+      } else {
+        cheatcodes = [];
+      }
 });
+
+
