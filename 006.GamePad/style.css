@@ -1,0 +1,64 @@
+#tooltip{
+    color: var(--gold);
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+
+:root {
+    --pixel-size: 1;
+ }
+ 
+ .Character {
+    width: calc(48px * var(--pixel-size));
+    height: calc(96px * var(--pixel-size));
+    overflow: hidden;
+    position:relative;
+    visibility: hidden;
+    display: flex;
+}
+
+.character-dialog{
+    font-size: 10px;
+    color: var(--gold);
+    text-shadow: 1px 1px 0px var(--black);
+    text-align: center;
+    width: 100%;
+    margin-bottom: 5px;
+    visibility: hidden;
+}
+ 
+ .Character_spritesheet {
+    animation: moveSpritesheet 1.2s steps(12) infinite;
+    width: calc(576px * var(--pixel-size));
+    position: absolute;
+ }
+
+ .pixelart {
+    image-rendering: pixelated;
+ }
+
+ .face-down {
+    top: calc(-96px * var(--pixel-size)) !important;
+ }
+
+ .face-left {
+    top: calc(-192px * var(--pixel-size));
+ }
+ 
+ .face-right {
+    top: calc(-288px * var(--pixel-size));
+ }
+
+ .face-up {
+    top: calc(-384px * var(--pixel-size)) !important;
+ }
+ 
+ @keyframes moveSpritesheet {
+    from {
+       transform: translate3d(0px,0,0)
+    }
+    to {
+       transform: translate3d(-100%,0,0)
+    }
+ }
+ 
