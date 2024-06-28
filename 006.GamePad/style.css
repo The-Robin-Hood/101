@@ -62,3 +62,52 @@
     }
  }
  
+ .keyboard {
+   position: relative;
+   width: 200px;
+   height: 120px;
+   display: none;
+}
+
+ .keyboard button {
+   color : white;
+   text-decoration: none;
+   border: 3px solid white;
+   border-radius: 5px;
+   box-shadow: -2px 2px;
+   flex-grow: 1;
+   font-family: monospace;
+   background: black;
+   font-size: 20px;
+   position: absolute;
+   width: 50px;
+   height: 50px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+}
+
+.left {
+   left: 0;
+}
+
+.right {
+   right: 0;
+   box-shadow: 2px -2px !important;
+}
+
+.top, .bottom {
+   left: 50%;
+   transform: translateX(-50%);
+}
+
+.bottom, .left, .right {
+   bottom: 0px;
+}
+
+.lit{
+   background: 3px solid var(--gold) !important;
+   color: var(--gold) !important;
+   border: 3px solid var(--gold) !important;
+}

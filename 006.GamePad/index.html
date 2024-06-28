@@ -22,9 +22,28 @@
             <p class="modal__p">
             <ul>
                 <li>
-                    A simple gamepad design using SVG and JavaScript.
+                    A simple gamepad using
+                    <span style="color:var(--lightGold)">
+                        SVG
+                    </span>
+                    and
+                    <span style="color:var(--lightGold)">
+                        JavaScript.
+                    </span>
                 </li>
-
+                <li>
+                    It uses
+                    <span style="color:var(--lightGold)">
+                        gamepad API
+                    </span>
+                    to get the input.
+                </li>
+                <li>
+                    <span style="color:var(--lightGold)">
+                        Aesprite sheet
+                    </span>
+                    used for the character animation.
+                </li>
 
             </ul>
             </p>
@@ -34,7 +53,8 @@
     <!-- Main Content -->
     <h1>GamePad</h1>
     <p id="tooltip"></p>
-    <svg id="controller" style="opacity: 25%;" width="500" height="330" viewBox="0 0 300 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg id="controller" style="opacity: 25%;" width="500" height="330" viewBox="0 0 300 230" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
         <g id="Group">
             <path id="BACK"
                 d="M135.211 80.9539C135.211 84.7195 132.245 87.7721 128.585 87.7721C124.926 87.7721 121.959 84.7195 121.959 80.9539C121.959 77.1883 124.926 74.1357 128.585 74.1357C132.245 74.1357 135.211 77.1883 135.211 80.9539Z"
@@ -128,12 +148,19 @@
                 stroke="white" stroke-width="2" />
         </g>
     </svg>
-    <p class="character-dialog">
-        Hello
-    </p>
+
+    <div class="keyboard" id="keyboard">
+        <button id="a" class="left">A</button>
+        <button id="d" class="right">D</button>
+        <button id="w" class="top">W</button>
+        <button id="s" class="bottom">S</button>
+    </div>
+
+    <p class="character-dialog"></p>
     <div class="Character" id="character-hitbox">
-        <img class="Character_spritesheet pixelart" src="../assets/images/female_aesprite.png" id="character" alt="Character" />
-     </div>
+        <img class="Character_spritesheet pixelart" src="../assets/images/female_aesprite.png" id="character"
+            alt="Character" />
+    </div>
 
 
     <!-- Footer -->
