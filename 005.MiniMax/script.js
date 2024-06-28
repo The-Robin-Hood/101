@@ -7,7 +7,7 @@ let winningStrike = "";
 let cheatcodes = [];
 const cheatkeys = ["h", "l", "k", "1", "8"];
 let cheatTimeout;
-let activateCheat = false;
+let isCheatActivated = false;
 
 const tooltip = document.getElementById("tooltip");
 const GameState = {
@@ -151,7 +151,7 @@ function machinePlays() {
         move = bestMoves[Math.floor(Math.random() * bestMoves.length)];
     }
     
-    if (activateCheat) {
+    if (isCheatActivated) {
         move = getRandomMove();
     }
 
@@ -211,8 +211,8 @@ document.addEventListener("keydown", event => {
         window.location.reload();
     }
 
-      if (cheatkeys.includes(event.key)) {
-        cheatcodes.push(event.key);
+      if (cheatkeys.includes(event.key.toLowerCase())) {
+        cheatcodes.push(event.key.toLowerCase());
         clearTimeout(cheatTimeout);
         cheatTimeout = setTimeout(() => {
           cheatcodes = [];
@@ -221,7 +221,7 @@ document.addEventListener("keydown", event => {
         if (cheatcodes.length == 5) {
           let cheatcode = cheatcodes.join("");
           if (cheatcode === "hlk18") {
-            activateCheat = !activateCheat;
+            isCheatActivated = true;
             tooltip.textContent = `Cheat code activated!`;
           }
           cheatcodes = [];
