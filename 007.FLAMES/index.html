@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>007.FLAMES</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../assets/common.css" />
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/png" />
+    <script src="../assets/common.js"></script>
+  </head>
+
+  <body data-disable-warning="true">
+    <!-- Modal Section -->
+    <input class="modal-state" id="modal" type="checkbox" />
+    <div class="modal">
+      <label class="modal__bg" for="modal"></label>
+      <div class="modal__inner" style="width: 30%">
+        <label class="modal__close" for="modal"></label>
+        <h2>007.FLAMES</h2>
+        <div class="modal__p">
+          <ul>
+            <li>
+              Five letters deciding your future. Because who needs
+              <span style="color: var(--lightGold)"> emotional stability? </span>
+            </li>
+            <li>
+              Just type two names, and let the
+              <span style="color: var(--lightGold)">mystical powers of math and childhood chaos</span> reveal
+              your relationship status.
+            </li>
+            <li>
+              Will you be Friends, Lovers, or sworn Enemies?
+              <span style="color: var(--lightGold)">FLAMES never lies*</span> (*except when it totally does).
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <h1 id="flamesContainer">
+      <span class="flame-letter">F</span>
+      <span class="flame-letter">L</span>
+      <span class="flame-letter">A</span>
+      <span class="flame-letter">M</span>
+      <span class="flame-letter">E</span>
+      <span class="flame-letter">S</span>
+    </h1>
+    <p id="tooltip">Dare to play !!</p>
+    <div class="container">
+      <div class="group">
+        <label for="p1">P1:</label>
+        <input type="text" id="p1" name="p1" placeholder="Peter Parker" />
+      </div>
+      <div class="group">
+        <label for="p2">P2:</label>
+        <input type="text" id="p2" name="p2" placeholder="Gwen Stacy" />
+      </div>
+      <button id="calcBtn" class="calc">BRING IT ON!!</button>
+      <svg
+        class="hidden"
+        id="reload"
+        onclick="window.location.reload();clearName()"
+        style="margin-top: 25px; cursor: pointer"
+        fill="var(--lightGold)"
+        width="45px"
+        height="45px"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19.146 4.854l-1.489 1.489A8 8 0 1 0 12 20a8.094 8.094 0 0 0 7.371-4.886 1 1 0 1 0-1.842-.779A6.071 6.071 0 0 1 12 18a6 6 0 1 1 4.243-10.243l-1.39 1.39a.5.5 0 0 0 .354.854H19.5A.5.5 0 0 0 20 9.5V5.207a.5.5 0 0 0-.854-.353z"
+        />
+      </svg>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <label for="modal">(i)</label>
+      <a class="arrow" href="../"></a>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>

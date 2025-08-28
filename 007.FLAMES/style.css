@@ -1,0 +1,76 @@
+input,
+textarea,
+select {
+  font-size: 16px;
+}
+
+#tooltip {
+  color: var(--gold);
+  margin-top: 25px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: fit-content;
+  z-index: 10;
+}
+
+.group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  font-size: 20px;
+}
+
+.flame-letter {
+  display: inline-block;
+  padding: 3px 5px;
+  border-radius: 4px;
+  font-size: 1.7rem;
+  transition: all 0.3s;
+}
+
+.highlight {
+  background: var(--lightGold);
+  box-shadow: 0 0 0.5em var(--lightGold);
+  border-radius: 5px;
+  scale: 1.5;
+}
+
+.removed {
+  opacity: 50%;
+}
+
+.calc {
+  margin-top: 30px;
+  background: transparent;
+  border: 1px solid var(--lightGold);
+  border-radius: 5px;
+  padding: 10px 30px;
+  color: var(--gold);
+  cursor: pointer;
+}
+
+.calc:hover {
+  background: var(--lightGold);
+  color: white;
+}
+
+.calc:disabled {
+  opacity: 50%;
+  cursor: not-allowed;
+  background: transparent;
+  color: var(--gold);
+}
+
+.hidden {
+  display: none;
+}
